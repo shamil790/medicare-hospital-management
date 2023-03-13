@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" style="background-color:#191c24">
+                  <div class="card-body">
+                    <h4 class="card-title">Display Doctor Details</h4>
+
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+
+                            <th> Name </th>
+                            <th> Description</th>
+                            <th> Consultation fee </th>
+                              <th>username</th>
+                              <th>password</th>
+                              <th>Image</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for d in data %}
+                        <tr>
+
+                            <td>{{d.Name}}</td>
+                            <td>{{d.Desc}}</td>
+                            <td>{{d.price}}</td>
+                            <td>{{d.username}}</td>
+                            <td>{{d.password}}</td>
+                            <td>
+                                <img src="{{d.Image.url}}"style="width:100px; height:100px;">
+                            </td>
+                            <td>
+                                <form action="{% url 'editdoctor' dataid=d.id %}">
+                                    <button type="submit" class="btn btn-success">Edit</button>
+                                </form>
+                            </td>
+                             <td>
+                                <form action="{% url 'Deletedoctor' dataid=d.id %}">
+                                    <button type="submit" class="btn btn-success">Delete</button>
+<!--                                    <button onclick="alertmsg()" type="submit" class="btn btn-danger">delete</button>-->
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+<!--<script>-->
+<!--    function alertmsg(){-->
+<!--        window.alert(" item deleted successfully")-->
+<!--        }-->
+<!--</script>-->
+<!--</body>-->
+                    </html>
+{% endblock %}

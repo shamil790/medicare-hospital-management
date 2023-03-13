@@ -1,0 +1,30 @@
+from django.urls import path
+from backend import views
+urlpatterns =[
+    path('indexhtmlpage/',views.indexhtmlpage,name="indexhtmlpage"),
+    path('adminpg/',views.adminpg,name="adminpg"),
+    path('saveadmin/',views.saveadmin,name="saveadmin"),
+    path('displayadmin/',views.displayadmin,name="displayadmin"),
+    path('editadmin/<int:dataid>/', views.editadmin, name="editadmin"),
+    path('Deleteadmin/<int:dataid>/', views.Deleteadmin, name="Deleteadmin"),
+    path('updateadmin/<int:dataid>/', views.updateadmin, name="updateadmin"),
+    path('adddepartment/', views.adddepartment, name="adddepartment"),
+    path('editdepartment/<int:dataid>/', views.editdepartment, name="editdepartment"),
+    path('Deletedepartment/<int:dataid>/', views.Deletedepartment, name="Deletedepartment"),
+    path('updatedepartment/<int:dataid>/', views.updatedepartment, name="updatedepartment"),
+    path('savedepartment/', views.savedepartment, name="savedepartment"),
+    path('displaydepartment/',views.displaydepartment,name="displaydepartment"),
+    path('adddoctor/',views.adddoctor,name="adddoctor"),
+    path('savedoctor/', views.savedoctor, name="savedoctor"),
+    path('displaydoctor/', views.displaydoctor, name="displaydoctor"),
+    path('editdoctor/<int:dataid>/', views.editdoctor, name="editdoctor"),
+    path('Deletedoctor/<int:dataid>/', views.Deletedoctor, name="Deletedoctor"),
+    path('updatedoctor/<int:dataid>/', views.updatedoctor, name="updatedoctor"),
+    path('',views.loginpage, name="loginpage"),
+    path('adminlogin/',views.adminlogin, name="adminlogin"),
+    path('adminlogout/', views.adminlogout, name="adminlogout"),
+    path('displaymsg/', views.displaymsg, name="displaymsg"),
+    path('Deletemsg/<int:dataid>/', views.Deletemsg, name="Deletemsg"),
+    path('displaybook/', views.displaybook, name="displaybook"),
+    path('Deletebook/<int:dataid>/', views.Deletebook, name="Deletebook")
+]

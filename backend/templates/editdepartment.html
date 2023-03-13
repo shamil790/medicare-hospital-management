@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><h1>MEDIA CARE</h1></center>
+<div class="card" style="background-color:#191c24">
+                  <div class="card-body">
+                    <h4 class="card-title">Edit deparment deatiles</h4>
+                      <form class="forms-sample" method="post" action="{% url 'updatedepartment' dataid=data.id %}" class="forms-sample" enctype="multipart/form-data"
+                      method="post">
+                      {% csrf_token %}
+
+<!--                    <p class="card-description"> Basic form elements </p>-->
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name" value="{{data.Name}}">
+                      </div>
+                        <br>
+                      <div class="form-group">
+                        <label for="exampleInputdiscription"> Discription</label>
+                        <input type="text" class="form-control" id="exampleInputdiscription" placeholder="discription" name="discription" value="{{data.Discription}}">
+                      </div>
+                        <br>
+                      <div>
+                        <label> IMAGE </label>
+                          <img src = "{{data.Image.url}}" width="200px" height="200px" >
+                        <input type="file" class="file-upload-default" name="image">
+<!--                        <input type="file" name="image">-->
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                        </form>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}

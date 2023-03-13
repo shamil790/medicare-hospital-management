@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" style="background-color:#191c24">
+                  <div class="card-body">
+                    <h4 class="card-title"> <center>Add department</center></h4>
+<!--                    <p class="card-description"> Basic form elements </p>-->
+                    <form class="forms-sample" method="post" action="{% url 'savedepartment' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                      <div class="form-group">
+                        <label for="exampleInputName1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name">
+                      </div>
+                        <br>
+                      <div class="form-group">
+                        <label for="exampleInputdiscription">description</label>
+                        <input type="text" class="form-control" id="exampleInputdiscription" placeholder="discription" name="discription">
+                      </div>
+                           <br>
+                      <div>
+                        <label> IMAGE </label>
+                        <input type="file" class="file-upload-default" name="image">
+<!--                        <input type="file" name="image">-->
+                      </div>
+                           <br>
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}

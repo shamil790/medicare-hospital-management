@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center><h1>MEDIA CARE</h1></center>
+<div class="card "style="background-color:#191c24">
+                  <div class="card-body">
+                    <h4 class="card-title">Doctors deatiles</h4>
+<!--                    <p class="card-description"> Basic form elements </p>-->
+                     <form class="forms-sample" method="post" action="{% url 'savedoctor' %}" class="forms-sample" enctype="multipart/form-data"
+                      method="post">
+                      {% csrf_token %}
+                       <div class="form-group">
+                        <label for="exampleSelectcategory">Departments</label>
+                        <select class="form-control" id="exampleSelectcategory" name="depart">
+                          <option>Select</option>
+                          {% for d in data %}
+                           <option>{{d.Name}}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                         <br>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Doctor name</label>
+                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name">
+                      </div>
+                         <br>
+                       <div class="form-group">
+                        <label for="exampleInputdescription">Description</label>
+                        <input type="text" class="form-control" id="exampleInputdescription" placeholder="Description" name="desc">
+                      </div>
+                          <br>
+                    <div class="form-group">
+                        <label for="exampleInputprice">Consultation fee</label>
+                        <input type="text" class="form-control" id="exampleInputprice" placeholder="price" name="price">
+                      </div>
+                          <br>
+                          <div class="form-group">
+                        <label for="exampleInputusername">User Name</label>
+                        <input type="password" class="form-control" id="exampleInputusername" placeholder="username" name="username">
+                      </div>
+                            <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password"name="password">
+                      </div>
+<!--                     <div class="form-group">-->
+<!--                        <label for="exampleInputName2">Department</label>-->
+<!--                        <input type="text" class="form-control" id="exampleInputName2" placeholder="Department" name="depart">-->
+<!--                      </div>-->
+                     <div>
+                        <label> Doctor image </label>
+                        <input type="file" name="image">
+<!--                        <input type="file" name="image">-->
+                      </div>
+                          <br>
+
+
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+<!--                         <button onclick="alertmsg()" type="submit" class="btn btn-danger">add</button>-->
+                    </form>
+                  </div>
+                </div>
+<!--<script>-->
+<!--    function alertmsg(){-->
+<!--        window.alert(" item added successfully")-->
+<!--        }-->
+<!--</script>-->
+<!--</body>-->
+                    </html>
+{% endblock %}
